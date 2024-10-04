@@ -1,0 +1,24 @@
+class: ADC
+schemaVersion: 3.50.0
+ACCESS_LAYER:
+    class: Tenant
+    app:
+        class: Application
+        psp_access_layer:
+            class: Access_Profile
+            url: >-
+                https://github.com/stanislaspiron/asm_policies/raw/refs/heads/main/psp_access_layer.conf.tar
+            ignoreChanges: true
+        prp_access_layer:
+            class: Per_Request_Access_Policy
+            url: >-
+                https://github.com/stanislaspiron/asm_policies/raw/refs/heads/main/prp_access_layer.conf.tar
+            ignoreChanges: true
+        irule_init_variables:
+            class: iRule
+            iRule: |
+                when RULE_INIT {
+                    set static::access_layer_selfip 1.2.3.4
+                    set static::authorization_layer_sefip 1.2.3.4
+                }
+            expand: true
