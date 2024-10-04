@@ -9,6 +9,7 @@ ACCESS_LAYER:
             url: >-
                 https://github.com/stanislaspiron/asm_policies/raw/refs/heads/main/psp_access_layer.conf.tar
             ignoreChanges: true
+            enable: true
         prp_access_layer:
             class: Per_Request_Access_Policy
             url: >-
